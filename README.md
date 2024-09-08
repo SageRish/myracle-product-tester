@@ -8,3 +8,24 @@ A tool that uses a multimodal LLM to describe testing instructions for any digit
 
 ## Screenshots
 ![Screenshot of web app](./screenshot.png)
+![Screenshot of API Usage](./image.png)
+
+## Install Instructions
+1. Download conda at: [Anaconda Website](https://www.anaconda.com/download)
+2. Create an environment: 
+```bash 
+conda create -n myenv python=3.11
+```
+3. Activate environment: 
+```bash 
+conda activate myenv
+```
+4. Use pip to install required libraries: 
+```bash 
+pip install -r requirements.txt
+```
+5. Clone the repo
+6. Run the code: 
+```bash 
+python front_end.py
+```
