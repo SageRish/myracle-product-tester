@@ -2,10 +2,7 @@ from openai import OpenAI
 import json
 import os
 import base64
-import requests
-from PIL import Image
 from dotenv import load_dotenv
-import io
 
 load_dotenv()
 

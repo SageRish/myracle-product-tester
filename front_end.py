@@ -1,6 +1,4 @@
 import gradio as gr
-import tempfile
-import os
 from PIL import Image
 import matplotlib.pyplot as plt
 from back_end import extract_functionalities, generate_testing_instructions
