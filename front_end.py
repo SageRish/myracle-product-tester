@@ -1,6 +1,8 @@
 import gradio as gr
 import tempfile
 import os
+from PIL import Image
+import matplotlib.pyplot as plt
 from back_end import extract_functionalities, generate_testing_instructions
 
 def get_instructions(context, images):
@@ -13,18 +15,25 @@ def get_instructions(context, images):
     if context:
         instructions += f"Context: {context}\n\n"
     
+    i = 1
+
     for image in images:
-        # Save the image to a temporary file
-        image_path = os.path.join(tempfile.gettempdir(), image.name)
-        image.save(image_path)
+        
+        image = Image.open(image)
+        plt.imshow(image)
+        plt.axis('off')  
+        plt.show()
+        image.save(f"output_image_{i}.png")
+        image_path = f"output_image_{i}.png"
+        i += 1
         
         # Add the image path to the instructions
         functionalities = extract_functionalities(context, image_path)
 
-        function_list = functionalities['functionalities']
+        function_list = functionalities["functionalities"]
 
         for function in function_list:
-            testing_instructions = generate_testing_instructions(context, function, image_path)
+            testing_instructions = generate_testing_instructions(function, image_path)
             instructions += f"Test ID: {function}\n\n"
             instructions += f"Testing Instructions: {testing_instructions}\n\n"
         

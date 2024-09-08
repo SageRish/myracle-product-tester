@@ -73,6 +73,13 @@ def extract_functionalities(optional_context, image_path):
     # Extract the functionalities from the response
     functionalities = api_call(extract_context, user_context, image_path, 200)
 
+    # Store output in text file
+    with open('output.txt', 'w') as f:
+        f.write(functionalities)
+
+    functionalities = functionalities.replace('json', '') # Remove the 'json' string from the response
+    functionalities = functionalities.replace('```', '') # Replace single quotes with double quotes
+
     # Convert functionalities to dictionary
     functionalities = json.loads(functionalities)
     
