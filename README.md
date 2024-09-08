@@ -1,6 +1,9 @@
 # myracle-product-tester
 A tool that uses a multimodal LLM to describe testing instructions for any digital product's features, based on the screenshots.
 
+## Demo Video
+[![Demo Video](./demo.png)](https://youtu.be/qOaLPHgWFhQ?si=13gHNWVis3m1z-rR)
+
 ## Prompting Strategy
 1. Split complex tasks into simpler subtasks: The task on its own requires several steps, which can mainly be divided into Finding what the functionalities in eah image are and writing the testing instructions for the functionalities.
 2. Personas: The model or the 'system' was specifically given specific contexts to follow for each major task, which allowed for consistent output of JSON Formats and Instructions for all images and functionalities.
